@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 <argument>"
+    exit 1
+fi
+
+arg=$1
+
+echo "aql for ip : $arg"
+
+
+docker run -it --rm aerospike/aerospike-tools:latest asadm -h $arg
+
+#asadm> enable
+#asadm> manage acl create user <username> password <password> roles read-write
